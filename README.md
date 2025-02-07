@@ -27,5 +27,5 @@ Multi Perception VR is a **virtual reality research tool** designed to simulate 
 🔹 **Mark**
 🔹 **Kanyan**n  
 🔹 **Stephen** 
-🔹 **Kyle**
+🔹 **Kyle/Jerry**
 
