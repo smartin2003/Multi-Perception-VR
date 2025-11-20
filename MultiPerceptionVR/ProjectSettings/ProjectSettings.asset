@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: b5b5a9438dd6cac458fe7e8b01436591
+  productGUID: 9f25ff5371d4588489dcbdde9f5d5e4b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -915,10 +915,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 34ea5d43-c010-4c50-8969-13bdd3514302
+  cloudProjectId: 57a33f11-453c-4c96-af44-716175d1bf61
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MultiPerceptionVR
+  projectName: MultiPerceptionVR 2025-11-20_14-52-19
   organizationId: smartin2003
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
