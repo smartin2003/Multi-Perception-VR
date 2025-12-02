@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
+  m_SkyboxMaterial: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1174,6 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964602098}
   - component: {fileID: 1964602099}
+  - component: {fileID: 1964602100}
   m_Layer: 0
   m_Name: OverlayAnchor
   m_TagString: Untagged
@@ -1190,7 +1191,7 @@ Transform:
   m_GameObject: {fileID: 1964602097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1260,6 +1261,32 @@ MonoBehaviour:
   useEfficientSharpen: 0
   useAutomaticFiltering: 0
   _previewInEditor: 1
+--- !u!114 &1964602100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964602097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f305012c40f435b40b46fb64ed28fa35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlay: {fileID: 1964602099}
+  leftImages:
+  - {fileID: 2800000, guid: 0cf6f1a7fd98c204c821db5f18ac6575, type: 3}
+  - {fileID: 2800000, guid: 1d69eb89c9322a147a1f466d45845b89, type: 3}
+  - {fileID: 2800000, guid: 82982e432e0922347835be9f221face6, type: 3}
+  - {fileID: 2800000, guid: 9bd9a6d17d7d45644995c87b80a68134, type: 3}
+  rightImages:
+  - {fileID: 2800000, guid: 7f6823845912fde41b85f1c0179f5ad5, type: 3}
+  - {fileID: 2800000, guid: ef8fb9bce1742e64b951b9edcbd1d447, type: 3}
+  - {fileID: 2800000, guid: bd4c810bc2673684881dcbf37845e4a8, type: 3}
+  - {fileID: 2800000, guid: 3effa35262f8ee14a986f0e96b7a0ae6, type: 3}
+  imageDisplayDuration: 3
+  flashFrequency: 0
+  startOnAwake: 1
 --- !u!1 &1978421165
 GameObject:
   m_ObjectHideFlags: 0
