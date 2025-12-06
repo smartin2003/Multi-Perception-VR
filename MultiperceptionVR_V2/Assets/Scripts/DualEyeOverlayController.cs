@@ -18,7 +18,10 @@ public class DualEyeOverlayController : MonoBehaviour
     public float flashFrequency = 0f;
 
     [Header("Auto Start")]
-    public bool startOnAwake = true;
+    public bool startOnAwake = false;
+
+    // --- Runtime fields ---
+    [HideInInspector] public bool experimentRunning = false;
 
     private int index = 0;
     private float imageTimer = 0f;
@@ -28,15 +31,24 @@ public class DualEyeOverlayController : MonoBehaviour
     void Start()
     {
         if (startOnAwake)
-            ApplyPair(index);
+        {
+            BeginExperiment();
+        }
+        else
+        {
+            // Make sure overlay is off until we start
+            if (overlay != null)
+                overlay.enabled = false;
+        }
     }
 
     void Update()
     {
+        if (!experimentRunning) return;
         if (leftImages.Length == 0 || rightImages.Length == 0) return;
         if (overlay == null) return;
 
-        // --- Handle image duration switching ---
+        // --- Handle image switching duration ---
         imageTimer += Time.deltaTime;
         if (imageTimer >= imageDisplayDuration)
         {
@@ -59,29 +71,62 @@ public class DualEyeOverlayController : MonoBehaviour
         }
     }
 
-    // Apply the current index pair
+    // Called by menu when the experiment begins
+    public void BeginExperiment()
+    {
+        experimentRunning = true;
+
+        index = 0;
+        imageTimer = 0f;
+        flashTimer = 0f;
+        flashVisible = true;
+
+        if (overlay != null)
+            overlay.enabled = true;
+
+        ApplyPair(index);
+    }
+
+    // Optional: if you ever want to stop from somewhere else
+    public void StopExperiment()
+    {
+        experimentRunning = false;
+
+        if (overlay != null)
+            overlay.enabled = false;
+
+        imageTimer = 0f;
+        flashTimer = 0f;
+        flashVisible = true;
+    }
+
+    // Apply current left/right pair
     private void ApplyPair(int i)
     {
+        if (overlay == null || leftImages.Length == 0 || rightImages.Length == 0)
+            return;
+
         overlay.textures[0] = leftImages[i];
         overlay.textures[1] = rightImages[i];
 
+        // Force refresh overlay
         overlay.enabled = false;
         overlay.enabled = true;
     }
 
-    // Switch to next pair
+    // Go to next image pair
     public void NextPair()
     {
         index = (index + 1) % leftImages.Length;
         ApplyPair(index);
     }
 
-    // Manually jump to specific pair
+    // Jump to specific pair
     public void SetPair(int i)
     {
         index = Mathf.Clamp(i, 0, leftImages.Length - 1);
-        imageTimer = 0;
-        flashTimer = 0;
+        imageTimer = 0f;
+        flashTimer = 0f;
         flashVisible = true;
         ApplyPair(index);
     }
