@@ -24,7 +24,6 @@ Recordings/
 *.booproj
 
 # === Platform-specific builds ===
-*.apk
 *.aab
 *.xcodeproj
 *.xcworkspace
